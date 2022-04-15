@@ -36,7 +36,7 @@ public class ParkingController {
 	@GetMapping("/parkVehicle")
 	public String isParkingAvailable(@RequestParam("registrationNbr") String registrationNbr,
 			@RequestParam("wheelCount") int wheelCount) {
-		String result = "Parking Slots are Available-00-@!";
+		String result = "Parking Slots are Available-00-@---";
 
 		return result;
 	}

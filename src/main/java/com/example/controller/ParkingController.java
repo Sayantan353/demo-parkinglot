@@ -36,27 +36,8 @@ public class ParkingController {
 	@GetMapping("/parkVehicle")
 	public String isParkingAvailable(@RequestParam("registrationNbr") String registrationNbr,
 			@RequestParam("wheelCount") int wheelCount) {
-		String result = "Parking Slot Not Available";
-		try {
-			ArrayList<ParkingSlot> parkingSlots = ps.getParkingSlotsArry();
-			Date dt = new Date();
+		String result = "Parking Slots are Available";
 
-			Vehicle vehicle = null;
-			if (wheelCount == 4) {
-				vehicle = new FourWheeler(registrationNbr, dt);
-			} else if (wheelCount == 2) {
-				vehicle = new TwoWheeler(registrationNbr, dt);
-			} else {
-				throw new RuntimeException("Invalid wheel number");
-			}
-			int vehicleParkedSlot = parkingUtility.getParkingSlot(vehicle);
-			if (vehicleParkedSlot < 0) {
-				result = "Parking Slot Available";
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		return result;
 	}
 
